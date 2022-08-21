@@ -11,14 +11,14 @@ public class EmailNotRegisteredValidator implements ConstraintValidator<EmailNot
 
 	@Autowired
 	private UserRepository repository;
-	
+
 	@Override
 	public boolean isValid(String value, ConstraintValidatorContext context) {
 
 		if (repository.existsByEmail(value)) {
-			return true;	
+			return false;
 		}
-		return false;
+		return true;
 
 	}
 }
